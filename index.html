@@ -1,111 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For Aliza ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>For Aliza ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Georgia', serif;
-      background: linear-gradient(to bottom, #ffe6ea, #ffd1dc);
-      color: #4a1c2a;
-      text-align: center;
-      overflow-x: hidden;
-    }
+<!-- Screenshot library -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
-    .container {
-      max-width: 720px;
-      margin: auto;
-      padding: 30px 16px;
-      position: relative;
-      z-index: 2;
-    }
+<style>
+body{
+  margin:0;
+  font-family:Georgia, serif;
+  background:linear-gradient(to bottom,#ffe6ea,#ffd1dc);
+  text-align:center;
+  overflow-x:hidden;
+}
 
-    h1 {
-      color: #c82333;
-      margin-bottom: 15px;
-    }
+.container{
+  max-width:720px;
+  margin:auto;
+  padding:25px 15px;
+  position:relative;
+  z-index:2;
+}
 
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      margin-bottom: 25px;
-    }
+h1{
+  color:#c82333;
+}
 
-    img {
-      width: 100%;
-      border-radius: 16px;
-      margin-bottom: 15px;
-    }
+.card{
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
 
-    .text {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
+img{
+  width:100%;
+  border-radius:16px;
+}
 
-    .question {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin: 25px 0 15px;
-    }
+.text{
+  font-size:1.1rem;
+  margin-top:10px;
+}
 
-    button {
-      background: #d6336c;
-      color: white;
-      border: none;
-      padding: 14px 34px;
-      font-size: 1.1rem;
-      border-radius: 30px;
-      cursor: pointer;
-    }
+button{
+  background:#d6336c;
+  color:#fff;
+  border:none;
+  padding:14px 32px;
+  font-size:1.1rem;
+  border-radius:30px;
+  cursor:pointer;
+}
 
-    button:hover {
-      background: #b02a52;
-    }
+button:disabled{
+  opacity:0.7;
+}
 
-    .response {
-      display: none;
-      margin-top: 20px;
-      font-size: 1.4rem;
-    }
+#loveBox{
+  display:none;
+  margin-top:25px;
+  padding:20px;
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  font-size:1.2rem;
+}
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
+footer{
+  margin-top:40px;
+  font-size:0.9rem;
+  opacity:0.8;
+}
 
-    /* ❤️ Falling Hearts */
-    .heart {
-      position: fixed;
-      top: -10px;
-      color: #ff5c8d;
-      font-size: 20px;
-      animation: fall linear forwards;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-    }
-  </style>
+/* Falling hearts */
+.heart{
+  position:fixed;
+  top:-10px;
+  font-size:20px;
+  color:#ff4d6d;
+  animation:fall linear forwards;
+  z-index:1;
+  pointer-events:none;
+}
+@keyframes fall{
+  to{
+    transform:translateY(110vh);
+    opacity:0;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <!-- 🎵 Background Music -->
-  <audio id="bgMusic" autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
+<!-- Music -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
+<div class="container" id="captureArea">
+
+<h1>To My Dearest Aliza ❤️</h1>
+
+<div class="card">
+  <img src="img1.jpg">
+  <p class="text">With you, love feels safe. With you, life feels right.</p>
+</div>
+
+<div class="card">
+  <img src="img2.jpg">
+  <p class="text">You are my peace, my home, and my forever.</p>
+</div>
+
+<div class="card">
+  <p style="font-size:1.4rem;font-weight:bold;">
+    Aliza, will you continue this beautiful journey with me forever?
+  </p>
+
+  <button id="yesBtn" onclick="showLove()">Yes, Forever ❤️</button>
+
+  <div id="loveBox">
+    <strong>Aliza ❤️</strong><br><br>
+    The moment you clicked “Yes”, my heart felt complete.<br>
+    You are my home, my peace, and my forever.<br>
+    I promise to love you, stand by you,<br>
+    and choose you — every single day of my life.<br><br>
+    <strong>Forever yours,<br>Rashid 💍</strong><br><br>
+
+    <button onclick="saveShot()">Save This Moment 📸</button>
+  </div>
+</div>
+
+<footer>Made with endless love by Rashid</footer>
+
+</div>
+
+<script>
+// Hearts
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(3+Math.random()*3)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},400);
+
+const music=document.getElementById("bgMusic");
+music.volume=0.35;
+
+function showLove(){
+  document.getElementById("loveBox").style.display="block";
+  const btn=document.getElementById("yesBtn");
+  btn.innerHTML="She said YES 💍❤️";
+  btn.disabled=true;
+  music.play();
+}
+
+// Screenshot save
+function saveShot(){
+  html2canvas(document.getElementById("captureArea")).then(canvas=>{
+    const link=document.createElement("a");
+    link.download="Our_Forever_Moment.png";
+    link.href=canvas.toDataURL();
+    link.click();
+  });
+}
+</script>
+
+</body>
+</html>
   <div class="container">
 
     <h1>To My Dearest Aliza ❤️</h1>
