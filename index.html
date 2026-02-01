@@ -1,111 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Dearest Aliza</title>
-    <style>
-        :root {
-            --primary-red: #d63447;
-            --soft-pink: #fcefee;
-            --accent-gold: #d4af37;
-            --text-dark: #4a4a4a;
-        }
+  <meta charset="UTF-8">
+  <title>For Aliza ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Georgia', serif;
-        }
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #ffe6ea, #ffd1dc);
+      color: #4a1c2a;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-        body {
-            background-color: var(--soft-pink);
-            overflow-x: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: var(--text-dark);
-        }
+    .container {
+      max-width: 720px;
+      margin: auto;
+      padding: 30px 16px;
+      position: relative;
+      z-index: 2;
+    }
 
-        /* Floating Hearts Background */
-        .heart {
-            position: fixed;
-            font-size: 20px;
-            color: var(--primary-red);
-            opacity: 0.6;
-            z-index: -1;
-            animation: float 6s linear infinite;
-        }
+    h1 {
+      color: #c82333;
+      margin-bottom: 15px;
+    }
 
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-        }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      margin-bottom: 25px;
+    }
 
-        /* Main Container */
-        .container {
-            width: 90%;
-            max-width: 600px;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            border: 1px solid #ffe4e1;
-        }
+    img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 15px;
+    }
 
-        h1 {
-            color: var(--primary-red);
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
+    .text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
 
-        .letter-content {
-            font-style: italic;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-            text-align: left;
-        }
+    .question {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin: 25px 0 15px;
+    }
 
-        .proposal-box {
-            margin-top: 30px;
-        }
+    button {
+      background: #d6336c;
+      color: white;
+      border: none;
+      padding: 14px 34px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+    }
 
-        .question {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 25px;
-            display: block;
-        }
+    button:hover {
+      background: #b02a52;
+    }
 
-        .btn-yes {
-            background-color: var(--primary-red);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(214, 52, 71, 0.3);
-        }
+    .response {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.4rem;
+    }
 
-        .btn-yes:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(214, 52, 71, 0.5);
-        }
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
 
-        /* Success Message Overlay */
-        #success-message {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+    /* ❤️ Falling Hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: #ff5c8d;
+      font-size: 20px;
+      animation: fall linear forwards;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎵 Background Music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+
+    <h1>To My Dearest Aliza ❤️</h1>
+
+    <div class="card">
+      <img src="img1.jpg" alt="Us together">
+      <p class="text">
+        With you, love feels safe.  
+        With you, life feels right.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="img2.jpg" alt="My home">
+      <p class="text">
+        You are my peace, my home,  
+        and my forever.
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="question">
+        Aliza, will you continue this beautiful journey with me forever?
+      </p>
+
+      <button onclick="showLove()">Yes, Forever ❤️</button>
+
+      <div class="response" id="love">
+        You are my always. 💍🥹❤️
+      </div>
+    </div>
+
+    <footer>
+      Made with endless love by Rashid
+    </footer>
+
+  </div>
+
+  <script>
+    // ❤️ Falling hearts generator
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }, 400);
+
+    // 🎵 Lower music volume
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.3;
+
+    function showLove() {
+      document.getElementById("love").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>            left: 0;
             width: 100%;
             height: 100%;
             background: rgba(255, 255, 255, 0.95);
